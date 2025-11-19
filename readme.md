@@ -1,80 +1,49 @@
-# 🧠 SP500 DataStream — Automated S&P 500 ETL Pipeline using Airflow, Snowflake & AWS S3
+# 🧠 SP500 DataStream — Automated ETL Pipeline for S&P 500 Data using Airflow, Snowflake & AWS S3
 
 ## 📘 Project Overview
-**SP500 DataStream** is an automated ETL pipeline that extracts real-time **S&P 500 stock data**, transforms it using Python, and loads the data into **AWS S3** and **Snowflake** for analytics.  
-The pipeline is fully orchestrated and automated using **Apache Airflow** running inside a **Docker container**.
+**SP500 DataStream** is a fully automated ETL pipeline designed to collect live **S&P 500 stock market data**, process it with Python, and store the results in **AWS S3** and **Snowflake** for advanced analytics.  
+The entire workflow is orchestrated using **Apache Airflow**, running inside a **Dockerized environment** for seamless automation and portability.
 
 ---
 
-## 🏗️ Architecture Diagram
-![Architecture Diagram](image/SP%20Architecture%20Diag.png)
+## ⚙️ Workflow Summary
+
+### **1. Extract**
+- Pulls the latest **S&P 500 ticker list** from Wikipedia.  
+- Retrieves daily stock price data directly from the **Yahoo Finance API**.
+
+### **2. Transform**
+- Cleans, validates, and structures the raw data using Python.  
+- Generates standardized CSV files ready for storage and analysis.
+
+### **3. Load**
+- Uploads processed CSV files to **AWS S3** for storage and backup.  
+- Inserts the transformed data into a **Snowflake table** for querying and BI workloads.
+
+### **4. Automation**
+- All tasks are scheduled, monitored, and managed through **Apache Airflow DAGs**.  
+- The full ETL pipeline runs inside a **Docker container**, ensuring consistency across environments.
 
 ---
 
-## ⚙️ Project Workflow
-
-1. **Extract**
-   - Retrieves **S&P 500 symbols** from *Wikipedia*.
-   - Fetches **stock price data** from *Yahoo Finance API*.
-
-2. **Transform**
-   - Cleans and formats the raw data using **Python scripts**.
-   - Converts the data into a well-structured CSV format.
-
-3. **Load**
-   - Loads the transformed CSV data into:
-     - **AWS S3** (as CSV backup)
-     - **Snowflake Table** (for analytics and querying)
-
-4. **Automation**
-   - All ETL tasks are scheduled and managed via **Apache Airflow DAGs**.
-   - The entire workflow runs automatically inside a **Docker container**.
-
----
-
-##  Folder Structure
+## 📂 Project Structure
 project_root/
 │
-├── dags/ # Airflow DAG files
-├── Scripts/ # Python scripts for ETL
-├── image/ # Architecture diagram and visuals
+├── dags/ # Airflow DAG definitions
+├── Scripts/ # Python ETL scripts
+├── image/ # Architecture diagrams
 ├── stock_data/ # Generated CSV files
-├── stockETL.py # Main ETL script
-├── .env # Environment variables (Snowflake, AWS credentials)
-├── pycache/ # Compiled cache
-└── README.md # Project documentation
+├── stockETL.py # Main ETL processing script
+├── .env # Environment variables / credentials
+├── pycache/ # Python cache
+└── README.md # Documentation
+
 
 ---
 
-##  Docker & Airflow Setup
+## 🐳 Docker & Airflow Setup
 
-### Start the Airflow Docker Environment
+### **Start Airflow in Docker**
 ```bash
 docker-compose up -d
-Access Airflow Web UI
-arduino
-Copy code
-http://localhost:8080
-Trigger the DAG
-Open Airflow web UI.
 
-Click Trigger DAG.
-
- Technologies Used
-Component	Technology
-Orchestration	Apache Airflow
-Data Extraction	Wikipedia, Yahoo Finance API
-Data Transformation	Python (Pandas)
-Data Storage	AWS S3, Snowflake
-Containerization	Docker
-Scheduling & Automation	Airflow DAGs
-
- Output
-CSV Files uploaded to AWS S3.
-
-👤 Author
-Muhammad Faizan Sajid
-Data Engineer
-🌍 Pakistan
-📧 faizansajid42@yahoo.com
-💼 https://www.linkedin.com/in/muhammad-faizan-145a54269/
