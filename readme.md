@@ -1,4 +1,4 @@
-# 🧠 SP500 DataStream — Automated ETL Pipeline for S&P 500 Data using Airflow, Snowflake & AWS S3
+# SP500 DataStream — Automated ETL Pipeline for S&P 500 Data using Airflow, Snowflake & AWS S3
 
 ## 📘 Project Overview
 **SP500 DataStream** is a fully automated ETL pipeline designed to collect live **S&P 500 stock market data**, process it with Python, and store the results in **AWS S3** and **Snowflake** for advanced analytics.  
@@ -6,7 +6,7 @@ The entire workflow is orchestrated using **Apache Airflow**, running inside a *
 
 ---
 
-## ⚙️ Workflow Summary
+## Workflow Summary
 
 ### **1. Extract**
 - Pulls the latest **S&P 500 ticker list** from Wikipedia.  
@@ -26,7 +26,7 @@ The entire workflow is orchestrated using **Apache Airflow**, running inside a *
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 project_root/
 │
 ├── dags/ # Airflow DAG definitions
@@ -41,7 +41,7 @@ project_root/
 
 ---
 
-## 🐳 Docker & Airflow Setup
+## Docker & Airflow Setup
 
 ### **Start Airflow in Docker**
 ```bash
